@@ -1,0 +1,2477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BharatVerse — Live India's Story</title>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Inter, sans-serif;
+    background:#080914;
+    color:#f5efe2;
+    overflow-x:hidden;
+}
+
+button{
+    font-family:inherit;
+    cursor:pointer;
+}
+
+:root{
+    --gold:#d8ad5b;
+    --gold-light:#f4d58b;
+    --cream:#f4ead7;
+    --dark:#080914;
+    --dark2:#101323;
+    --purple:#17152d;
+    --terracotta:#a9533d;
+    --green:#52745b;
+    --muted:#9d9ba7;
+}
+
+/* ============================= */
+/* BACKGROUND */
+/* ============================= */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:100;
+    opacity:.06;
+
+    background-image:
+    linear-gradient(rgba(255,255,255,.3) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.3) 1px,transparent 1px);
+
+    background-size:70px 70px;
+}
+
+/* ============================= */
+/* NAVBAR */
+/* ============================= */
+
+.navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:78px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 6%;
+
+    z-index:1000;
+
+    background:rgba(7,8,18,.72);
+    backdrop-filter:blur(18px);
+
+    border-bottom:1px solid rgba(216,173,91,.12);
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+    font-family:Cinzel,serif;
+    font-size:20px;
+    letter-spacing:3px;
+}
+
+.logo-symbol{
+    width:38px;
+    height:38px;
+    border:1px solid var(--gold);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    color:var(--gold);
+    font-size:18px;
+}
+
+.nav-links{
+    display:flex;
+    gap:32px;
+}
+
+.nav-links button{
+    background:none;
+    border:none;
+    color:#aaa8b3;
+    font-size:13px;
+    letter-spacing:1px;
+    transition:.3s;
+}
+
+.nav-links button:hover{
+    color:var(--gold-light);
+}
+
+.player-mini{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.coins{
+    padding:8px 14px;
+    border:1px solid rgba(216,173,91,.25);
+    border-radius:30px;
+    color:var(--gold-light);
+    background:rgba(216,173,91,.06);
+}
+
+.avatar{
+    width:38px;
+    height:38px;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:linear-gradient(135deg,#a9533d,#d8ad5b);
+
+    color:white;
+    font-weight:bold;
+}
+
+/* ============================= */
+/* SECTIONS */
+/* ============================= */
+
+.section{
+    min-height:100vh;
+    padding:120px 7% 80px;
+}
+
+.hidden{
+    display:none !important;
+}
+
+/* ============================= */
+/* HERO */
+/* ============================= */
+
+.hero{
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+
+    position:relative;
+
+    background:
+    linear-gradient(90deg,
+        rgba(5,6,15,.97) 0%,
+        rgba(5,6,15,.78) 40%,
+        rgba(5,6,15,.25) 100%
+    ),
+    url("https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=2000&q=90");
+
+    background-size:cover;
+    background-position:center;
+}
+
+.hero-content{
+    max-width:720px;
+    padding-top:70px;
+}
+
+.eyebrow{
+    color:var(--gold);
+    letter-spacing:5px;
+    font-size:12px;
+    text-transform:uppercase;
+    margin-bottom:25px;
+}
+
+.hero h1{
+    font-family:Cinzel,serif;
+    font-size:clamp(55px,8vw,105px);
+    line-height:.95;
+    font-weight:500;
+    letter-spacing:-4px;
+}
+
+.hero h1 span{
+    color:var(--gold);
+}
+
+.hero-sub{
+    margin-top:30px;
+    color:#bbb8c2;
+    line-height:1.8;
+    max-width:600px;
+    font-size:16px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:15px;
+    margin-top:40px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:15px 25px;
+    border-radius:5px;
+
+    border:1px solid rgba(216,173,91,.35);
+
+    background:transparent;
+    color:var(--cream);
+
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+    border-color:var(--gold);
+}
+
+.btn-primary{
+    background:linear-gradient(135deg,#c99745,#e3bc6b);
+    color:#17120a;
+    border:none;
+    font-weight:600;
+}
+
+.btn-primary:hover{
+    box-shadow:0 15px 40px rgba(216,173,91,.25);
+}
+
+.hero-stats{
+    display:flex;
+    gap:45px;
+    margin-top:65px;
+}
+
+.stat strong{
+    display:block;
+    font-family:Cinzel,serif;
+    font-size:26px;
+    color:var(--gold);
+}
+
+.stat span{
+    font-size:11px;
+    color:#888692;
+    letter-spacing:1px;
+}
+
+/* ============================= */
+/* SECTION HEADER */
+/* ============================= */
+
+.section-header{
+    max-width:700px;
+    margin-bottom:60px;
+}
+
+.section-header h2{
+    font-family:Cinzel,serif;
+    font-size:48px;
+    font-weight:500;
+    margin-top:10px;
+}
+
+.section-header p{
+    color:#9d9ba7;
+    line-height:1.8;
+    margin-top:15px;
+}
+
+/* ============================= */
+/* FEATURE CARDS */
+/* ============================= */
+
+.feature-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.feature-card{
+    min-height:300px;
+    padding:30px;
+
+    border:1px solid rgba(255,255,255,.08);
+    background:linear-gradient(
+        145deg,
+        rgba(255,255,255,.05),
+        rgba(255,255,255,.015)
+    );
+
+    border-radius:12px;
+
+    position:relative;
+    overflow:hidden;
+
+    transition:.4s;
+}
+
+.feature-card:hover{
+    transform:translateY(-10px);
+    border-color:rgba(216,173,91,.4);
+}
+
+.feature-number{
+    color:var(--gold);
+    font-size:12px;
+}
+
+.feature-card h3{
+    font-family:Cinzel,serif;
+    font-size:25px;
+    margin-top:50px;
+}
+
+.feature-card p{
+    color:#9997a2;
+    margin-top:15px;
+    line-height:1.7;
+}
+
+.feature-icon{
+    position:absolute;
+    right:25px;
+    bottom:20px;
+
+    font-size:65px;
+    opacity:.12;
+}
+
+/* ============================= */
+/* INDIA ATLAS */
+/* ============================= */
+
+.atlas{
+    background:#0b0d19;
+}
+
+.atlas-layout{
+    display:grid;
+    grid-template-columns:1.2fr .8fr;
+    gap:35px;
+}
+
+.map{
+    min-height:600px;
+
+    border-radius:18px;
+
+    background:
+    linear-gradient(rgba(8,9,20,.25),rgba(8,9,20,.8)),
+    url("https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=1400&q=80");
+
+    background-size:cover;
+    background-position:center;
+
+    position:relative;
+
+    border:1px solid rgba(216,173,91,.2);
+    overflow:hidden;
+}
+
+.map-title{
+    position:absolute;
+    top:30px;
+    left:30px;
+
+    font-family:Cinzel,serif;
+    font-size:25px;
+}
+
+.map-pin{
+    position:absolute;
+
+    width:18px;
+    height:18px;
+
+    background:var(--gold);
+
+    border:4px solid rgba(216,173,91,.2);
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    box-shadow:0 0 0 8px rgba(216,173,91,.06);
+
+    transition:.3s;
+}
+
+.map-pin:hover{
+    transform:scale(1.5);
+}
+
+.pin1{top:67%;left:54%}
+.pin2{top:49%;left:61%}
+.pin3{top:36%;left:49%}
+.pin4{top:55%;left:40%}
+
+.map-info{
+    padding:35px;
+
+    border:1px solid rgba(255,255,255,.08);
+    background:#101222;
+
+    border-radius:18px;
+}
+
+.map-info h3{
+    font-family:Cinzel,serif;
+    font-size:30px;
+}
+
+.map-info p{
+    color:#9997a2;
+    line-height:1.8;
+    margin-top:15px;
+}
+
+.civilization-list{
+    margin-top:35px;
+}
+
+.civilization{
+    padding:20px 0;
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    cursor:pointer;
+}
+
+.civilization:hover{
+    color:var(--gold);
+}
+
+/* ============================= */
+/* WORLD */
+/* ============================= */
+
+.world{
+    background:
+    linear-gradient(rgba(7,8,18,.72),rgba(7,8,18,.92)),
+    url("https://images.unsplash.com/photo-1532375810709-75b1da00537c?auto=format&fit=crop&w=2000&q=90");
+
+    background-size:cover;
+    background-position:center;
+}
+
+.world-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+    margin-bottom:35px;
+}
+
+.world-title{
+    font-family:Cinzel,serif;
+    font-size:52px;
+}
+
+.resources{
+    display:flex;
+    gap:12px;
+}
+
+.resource{
+    background:rgba(8,9,20,.8);
+    border:1px solid rgba(255,255,255,.1);
+    padding:12px 18px;
+    border-radius:8px;
+}
+
+.resource span{
+    color:var(--gold);
+    font-weight:bold;
+}
+
+/* ============================= */
+/* QUEST */
+/* ============================= */
+
+.quest-box{
+    max-width:900px;
+
+    padding:45px;
+
+    background:rgba(9,10,20,.9);
+
+    border:1px solid rgba(216,173,91,.22);
+
+    border-radius:15px;
+
+    box-shadow:0 30px 100px rgba(0,0,0,.5);
+}
+
+.quest-label{
+    color:var(--gold);
+    letter-spacing:3px;
+    font-size:11px;
+}
+
+.quest-box h3{
+    font-family:Cinzel,serif;
+    font-size:36px;
+    margin-top:15px;
+}
+
+.quest-box p{
+    color:#aaa8b2;
+    line-height:1.8;
+    margin:20px 0;
+}
+
+.choices{
+    display:grid;
+    gap:12px;
+}
+
+.choice{
+    padding:18px;
+
+    border:1px solid rgba(255,255,255,.1);
+
+    background:rgba(255,255,255,.025);
+
+    color:#ddd;
+
+    text-align:left;
+
+    border-radius:8px;
+
+    transition:.3s;
+}
+
+.choice:hover{
+    border-color:var(--gold);
+    background:rgba(216,173,91,.08);
+    transform:translateX(5px);
+}
+
+.quest-progress{
+    height:4px;
+    background:#272838;
+    margin-bottom:30px;
+}
+
+.quest-progress span{
+    display:block;
+    height:100%;
+    background:var(--gold);
+    width:33%;
+    transition:.4s;
+}
+
+/* ============================= */
+/* MUSEUM */
+/* ============================= */
+
+.museum{
+    background:#0b0c17;
+}
+
+.artifact-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.artifact{
+    background:#111322;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:12px;
+
+    overflow:hidden;
+
+    transition:.4s;
+}
+
+.artifact:hover{
+    transform:translateY(-8px);
+    border-color:rgba(216,173,91,.4);
+}
+
+.artifact-image{
+    height:230px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:90px;
+
+    background:
+    radial-gradient(circle at center,
+        rgba(216,173,91,.16),
+        transparent 60%
+    );
+}
+
+.artifact-content{
+    padding:25px;
+}
+
+.artifact-content h3{
+    font-family:Cinzel,serif;
+}
+
+.artifact-content p{
+    color:#85838f;
+    font-size:13px;
+    line-height:1.7;
+    margin-top:10px;
+}
+
+.artifact-tag{
+    display:inline-block;
+
+    margin-top:15px;
+
+    padding:5px 9px;
+
+    border:1px solid rgba(216,173,91,.2);
+
+    color:var(--gold);
+
+    font-size:10px;
+
+    border-radius:20px;
+}
+
+/* ============================= */
+/* MENTOR */
+/* ============================= */
+
+.mentor{
+    background:
+    radial-gradient(circle at 80% 20%,rgba(168,83,61,.15),transparent 30%),
+    #080914;
+}
+
+.mentor-layout{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+    align-items:center;
+}
+
+.mentor-orb{
+    height:500px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.orb{
+    width:300px;
+    height:300px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(circle,
+        #f4d58b,
+        #d8ad5b 12%,
+        #704e26 35%,
+        transparent 65%
+    );
+
+    box-shadow:
+    0 0 100px rgba(216,173,91,.25),
+    inset 0 0 80px rgba(255,255,255,.15);
+
+    animation:pulse 4s infinite;
+}
+
+@keyframes pulse{
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.06);
+    }
+}
+
+.chat{
+    background:#101222;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:15px;
+
+    overflow:hidden;
+}
+
+.chat-header{
+    padding:20px;
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.online{
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:#67b875;
+}
+
+.messages{
+    padding:25px;
+    min-height:300px;
+}
+
+.message{
+    max-width:80%;
+    padding:15px;
+
+    border-radius:10px;
+
+    margin-bottom:15px;
+
+    line-height:1.6;
+    font-size:14px;
+}
+
+.bot{
+    background:#181a2b;
+}
+
+.user{
+    background:#59462a;
+    margin-left:auto;
+}
+
+.chat-input{
+    display:flex;
+    border-top:1px solid rgba(255,255,255,.08);
+}
+
+.chat-input input{
+    flex:1;
+
+    background:transparent;
+
+    border:none;
+
+    outline:none;
+
+    color:white;
+
+    padding:20px;
+}
+
+.chat-input button{
+    border:none;
+    background:var(--gold);
+    padding:0 25px;
+}
+
+/* ============================= */
+/* PROFILE */
+/* ============================= */
+
+.profile{
+    background:#0b0c17;
+}
+
+.profile-card{
+    max-width:1100px;
+    margin:auto;
+
+    background:#111322;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:18px;
+
+    padding:40px;
+}
+
+.profile-top{
+    display:flex;
+    align-items:center;
+    gap:25px;
+
+    padding-bottom:35px;
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.big-avatar{
+    width:90px;
+    height:90px;
+
+    border-radius:50%;
+
+    background:linear-gradient(135deg,#a9533d,#d8ad5b);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:30px;
+}
+
+.profile-name{
+    font-family:Cinzel,serif;
+    font-size:32px;
+}
+
+.level{
+    color:var(--gold);
+    margin-top:7px;
+}
+
+.profile-stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+    margin-top:30px;
+}
+
+.profile-stat{
+    padding:25px;
+
+    background:#0b0d19;
+
+    border-radius:10px;
+
+    border:1px solid rgba(255,255,255,.05);
+}
+
+.profile-stat strong{
+    display:block;
+    font-family:Cinzel,serif;
+    font-size:28px;
+    color:var(--gold);
+}
+
+.profile-stat span{
+    color:#85838f;
+    font-size:12px;
+}
+
+.badges{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+    margin-top:25px;
+}
+
+.badge{
+    padding:18px;
+
+    width:130px;
+
+    text-align:center;
+
+    background:#0b0d19;
+
+    border:1px solid rgba(216,173,91,.2);
+
+    border-radius:10px;
+}
+
+.badge-icon{
+    font-size:30px;
+    margin-bottom:8px;
+}
+
+/* ============================= */
+/* MODAL */
+/* ============================= */
+
+.modal{
+    position:fixed;
+    inset:0;
+
+    background:rgba(0,0,0,.75);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    z-index:2000;
+
+    backdrop-filter:blur(10px);
+}
+
+.modal-box{
+    width:min(700px,90%);
+
+    background:#111322;
+
+    border:1px solid rgba(216,173,91,.3);
+
+    border-radius:15px;
+
+    padding:40px;
+
+    position:relative;
+}
+
+.close{
+    position:absolute;
+    right:20px;
+    top:20px;
+
+    background:none;
+    border:none;
+
+    color:#aaa;
+
+    font-size:25px;
+}
+
+/* ============================= */
+/* TOAST */
+/* ============================= */
+
+.toast{
+    position:fixed;
+
+    right:30px;
+    bottom:30px;
+
+    padding:18px 25px;
+
+    background:#17192a;
+
+    border:1px solid rgba(216,173,91,.4);
+
+    border-radius:10px;
+
+    transform:translateY(120px);
+
+    opacity:0;
+
+    transition:.4s;
+
+    z-index:3000;
+}
+
+.toast.show{
+    transform:translateY(0);
+    opacity:1;
+}
+
+/* ============================= */
+/* FOOTER */
+/* ============================= */
+
+footer{
+    padding:50px 7%;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+    display:flex;
+    justify-content:space-between;
+
+    color:#777581;
+
+    font-size:12px;
+}
+
+/* ============================= */
+/* RESPONSIVE */
+/* ============================= */
+
+@media(max-width:1000px){
+
+    .feature-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .artifact-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .atlas-layout,
+    .mentor-layout{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:700px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .hero h1{
+        font-size:55px;
+    }
+
+    .feature-grid,
+    .artifact-grid{
+        grid-template-columns:1fr;
+    }
+
+    .profile-stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .hero-stats{
+        gap:20px;
+    }
+
+    .world-top{
+        display:block;
+    }
+
+    .resources{
+        margin-top:25px;
+        flex-wrap:wrap;
+    }
+
+    .quest-box{
+        padding:25px;
+    }
+
+    footer{
+        display:block;
+        line-height:2;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        <div class="logo-symbol">✦</div>
+        BHARATVERSE
+    </div>
+
+    <div class="nav-links">
+
+        <button onclick="showPage('home')">
+            HOME
+        </button>
+
+        <button onclick="showPage('explore')">
+            EXPLORE
+        </button>
+
+        <button onclick="showPage('world')">
+            PLAY
+        </button>
+
+        <button onclick="showPage('museum')">
+            MUSEUM
+        </button>
+
+        <button onclick="showPage('mentor')">
+            MENTOR
+        </button>
+
+        <button onclick="showPage('profile')">
+            PROFILE
+        </button>
+
+    </div>
+
+    <div class="player-mini">
+
+        <div class="coins">
+            🪙 <span id="navCoins">250</span>
+        </div>
+
+        <div class="avatar">
+            M
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- ================= HOME ================= -->
+
+<section id="home" class="hero section">
+
+    <div class="hero-content">
+
+        <div class="eyebrow">
+            A Living Cultural Game
+        </div>
+
+        <h1>
+            LIVE<br>
+            <span>INDIA'S</span><br>
+            STORY.
+        </h1>
+
+        <p class="hero-sub">
+            BharatVerse transforms India's civilizations,
+            stories, inventions and heritage into an
+            interactive world where every decision changes
+            your journey.
+        </p>
+
+        <div class="hero-buttons">
+
+            <button
+                class="btn btn-primary"
+                onclick="showPage('explore')">
+                ENTER BHARATVERSE →
+            </button>
+
+            <button
+                class="btn"
+                onclick="showPage('world')">
+                PLAY DEMO
+            </button>
+
+        </div>
+
+        <div class="hero-stats">
+
+            <div class="stat">
+                <strong>5000+</strong>
+                <span>YEARS OF STORIES</span>
+            </div>
+
+            <div class="stat">
+                <strong>28</strong>
+                <span>REGIONS</span>
+            </div>
+
+            <div class="stat">
+                <strong>∞</strong>
+                <span>POSSIBILITIES</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= EXPLORE ================= -->
+
+<section id="explore" class="section">
+
+    <div class="section-header">
+
+        <div class="eyebrow">
+            THE WORLD
+        </div>
+
+        <h2>
+            India was never<br>
+            just one story.
+        </h2>
+
+        <p>
+            Explore civilizations, discover forgotten
+            knowledge and enter worlds shaped by the
+            choices of the people who lived there.
+        </p>
+
+    </div>
+
+
+    <div class="feature-grid">
+
+        <div class="feature-card">
+
+            <span class="feature-number">01</span>
+
+            <h3>Explore</h3>
+
+            <p>
+                Travel through an interactive atlas
+                of India's civilizations.
+            </p>
+
+            <div class="feature-icon">
+                🗺
+            </div>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <span class="feature-number">02</span>
+
+            <h3>Play</h3>
+
+            <p>
+                Make decisions, solve challenges
+                and shape your civilization.
+            </p>
+
+            <div class="feature-icon">
+                ⚔
+            </div>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <span class="feature-number">03</span>
+
+            <h3>Collect</h3>
+
+            <p>
+                Discover artifacts and unlock
+                pieces of India's cultural memory.
+            </p>
+
+            <div class="feature-icon">
+                🏺
+            </div>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <span class="feature-number">04</span>
+
+            <h3>Adapt</h3>
+
+            <p>
+                Your decisions change challenges,
+                rewards and the story you experience.
+            </p>
+
+            <div class="feature-icon">
+                ✦
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ATLAS ================= -->
+
+<section class="section atlas">
+
+    <div class="section-header">
+
+        <div class="eyebrow">
+            INTERACTIVE ATLAS
+        </div>
+
+        <h2>
+            Choose your civilization.
+        </h2>
+
+        <p>
+            Every region opens a different world,
+            gameplay system and cultural story.
+        </p>
+
+    </div>
+
+
+    <div class="atlas-layout">
+
+        <div class="map">
+
+            <div class="map-title">
+                BHARAT ATLAS
+            </div>
+
+            <div
+                class="map-pin pin1"
+                onclick="selectCivilization('Chola Maritime Kingdom')">
+            </div>
+
+            <div
+                class="map-pin pin2"
+                onclick="selectCivilization('Rajputana')">
+            </div>
+
+            <div
+                class="map-pin pin3"
+                onclick="selectCivilization('Nalanda')">
+            </div>
+
+            <div
+                class="map-pin pin4"
+                onclick="selectCivilization('Bengal Delta')">
+            </div>
+
+        </div>
+
+
+        <div class="map-info">
+
+            <div class="eyebrow">
+                AVAILABLE WORLDS
+            </div>
+
+            <h3 id="selectedCivilization">
+                Chola Maritime Kingdom
+            </h3>
+
+            <p id="civilizationDescription">
+                Command a growing maritime kingdom,
+                develop ports, manage resources and
+                navigate the Indian Ocean trade network.
+            </p>
+
+
+            <div class="civilization-list">
+
+                <div
+                    class="civilization"
+                    onclick="selectCivilization('Chola Maritime Kingdom')">
+
+                    <span>⚓ Chola Maritime Kingdom</span>
+                    <span>→</span>
+
+                </div>
+
+
+                <div
+                    class="civilization"
+                    onclick="selectCivilization('Rajputana')">
+
+                    <span>🏰 Rajputana</span>
+                    <span>→</span>
+
+                </div>
+
+
+                <div
+                    class="civilization"
+                    onclick="selectCivilization('Nalanda')">
+
+                    <span>📜 Nalanda</span>
+                    <span>→</span>
+
+                </div>
+
+
+                <div
+                    class="civilization"
+                    onclick="selectCivilization('Bengal Delta')">
+
+                    <span>🛶 Bengal Delta</span>
+                    <span>→</span>
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="btn btn-primary"
+                style="margin-top:30px"
+                onclick="showPage('world')">
+
+                ENTER WORLD →
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= GAME WORLD ================= -->
+
+<section id="world" class="section world">
+
+    <div class="world-top">
+
+        <div>
+
+            <div class="eyebrow">
+                WORLD 01 · CHOLA
+            </div>
+
+            <div class="world-title">
+                THE GREAT PORT
+            </div>
+
+        </div>
+
+
+        <div class="resources">
+
+            <div class="resource">
+                🪙 <span id="coins">250</span>
+            </div>
+
+            <div class="resource">
+                ⚡ <span id="xp">0</span> XP
+            </div>
+
+            <div class="resource">
+                🏺 <span id="artifactCount">0</span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="quest-box">
+
+        <div class="quest-progress">
+            <span id="progressBar"></span>
+        </div>
+
+        <div class="quest-label">
+            CHOLA MARITIME QUEST
+        </div>
+
+        <h3 id="questTitle">
+            The Great Port
+        </h3>
+
+        <p id="questText">
+            Your harbour is growing.
+            A merchant fleet has arrived before
+            the monsoon. How will you prepare
+            the kingdom?
+        </p>
+
+        <div
+            class="choices"
+            id="choices">
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= MUSEUM ================= -->
+
+<section id="museum" class="section museum">
+
+    <div class="section-header">
+
+        <div class="eyebrow">
+            DIGITAL MUSEUM
+        </div>
+
+        <h2>
+            Your collection.
+        </h2>
+
+        <p>
+            Every artifact you discover becomes part
+            of your personal cultural archive.
+        </p>
+
+    </div>
+
+
+    <div class="artifact-grid">
+
+
+        <div class="artifact">
+
+            <div class="artifact-image">
+                🕺
+            </div>
+
+            <div class="artifact-content">
+
+                <h3>
+                    Bronze Nataraja
+                </h3>
+
+                <p>
+                    A symbol of cosmic dance,
+                    transformation and artistic
+                    excellence.
+                </p>
+
+                <span class="artifact-tag">
+                    CHOLA
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="artifact">
+
+            <div class="artifact-image">
+                ⚓
+            </div>
+
+            <div class="artifact-content">
+
+                <h3>
+                    Maritime Seal
+                </h3>
+
+                <p>
+                    A clue to India's historic
+                    connections across the seas.
+                </p>
+
+                <span class="artifact-tag">
+                    TRADE
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="artifact">
+
+            <div class="artifact-image">
+                📜
+            </div>
+
+            <div class="artifact-content">
+
+                <h3>
+                    Palm Leaf Manuscript
+                </h3>
+
+                <p>
+                    Knowledge preserved through
+                    generations.
+                </p>
+
+                <span class="artifact-tag">
+                    KNOWLEDGE
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="artifact">
+
+            <div class="artifact-image">
+                🛕
+            </div>
+
+            <div class="artifact-content">
+
+                <h3>
+                    Temple Inscription
+                </h3>
+
+                <p>
+                    An imagined gameplay artifact
+                    inspired by inscriptional traditions.
+                </p>
+
+                <span class="artifact-tag">
+                    HERITAGE
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= MENTOR ================= -->
+
+<section id="mentor" class="section mentor">
+
+    <div class="mentor-layout">
+
+        <div>
+
+            <div class="eyebrow">
+                BHARATVERSE AI
+            </div>
+
+            <h2 class="world-title">
+                Meet your<br>
+                Cultural Mentor.
+            </h2>
+
+            <p class="hero-sub">
+                Ask questions while you explore.
+                Your mentor explains cultural context,
+                historical connections and gameplay clues.
+            </p>
+
+        </div>
+
+
+        <div class="chat">
+
+            <div class="chat-header">
+
+                <div class="online"></div>
+
+                <div>
+                    <strong>
+                        VEDA
+                    </strong>
+
+                    <div style="
+                        color:#777581;
+                        font-size:11px;
+                        margin-top:3px;
+                    ">
+                        Cultural Mentor
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="messages"
+                id="messages">
+
+                <div class="message bot">
+
+                    Namaste, explorer. 👋
+
+                    <br><br>
+
+                    I can help you understand the
+                    world you're exploring.
+
+                    <br><br>
+
+                    Ask me something like:
+
+                    <br>
+
+                    <em>
+                        "Why were ports important?"
+                    </em>
+
+                </div>
+
+            </div>
+
+
+            <div class="chat-input">
+
+                <input
+                    id="chatInput"
+                    placeholder="Ask your cultural mentor..."
+                    onkeydown="if(event.key==='Enter')sendMessage()">
+
+                <button onclick="sendMessage()">
+                    SEND
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PROFILE ================= -->
+
+<section id="profile" class="section profile">
+
+    <div class="section-header">
+
+        <div class="eyebrow">
+            PLAYER PROFILE
+        </div>
+
+        <h2>
+            Your Journey.
+        </h2>
+
+    </div>
+
+
+    <div class="profile-card">
+
+        <div class="profile-top">
+
+            <div class="big-avatar">
+                M
+            </div>
+
+            <div>
+
+                <div class="profile-name">
+                    Explorer
+                </div>
+
+                <div class="level">
+                    LEVEL <span id="level">1</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="profile-stats">
+
+            <div class="profile-stat">
+
+                <strong id="profileXP">
+                    0
+                </strong>
+
+                <span>
+                    EXPERIENCE
+                </span>
+
+            </div>
+
+
+            <div class="profile-stat">
+
+                <strong id="profileCoins">
+                    250
+                </strong>
+
+                <span>
+                    BHARAT COINS
+                </span>
+
+            </div>
+
+
+            <div class="profile-stat">
+
+                <strong id="profileArtifacts">
+                    0
+                </strong>
+
+                <span>
+                    ARTIFACTS
+                </span>
+
+            </div>
+
+
+            <div class="profile-stat">
+
+                <strong>
+                    1
+                </strong>
+
+                <span>
+                    WORLD
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <h3 style="
+            margin-top:40px;
+            font-family:Cinzel,serif;
+        ">
+            Achievement Hall
+        </h3>
+
+
+        <div class="badges">
+
+            <div class="badge">
+
+                <div class="badge-icon">
+                    🧭
+                </div>
+
+                Explorer
+
+            </div>
+
+
+            <div class="badge">
+
+                <div class="badge-icon">
+                    ⚓
+                </div>
+
+                Navigator
+
+            </div>
+
+
+            <div class="badge">
+
+                <div class="badge-icon">
+                    🏺
+                </div>
+
+                Curator
+
+            </div>
+
+
+            <div class="badge">
+
+                <div class="badge-icon">
+                    🏛
+                </div>
+
+                Heritage Keeper
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <div>
+        © 2026 BHARATVERSE
+    </div>
+
+    <div>
+        DON'T JUST LEARN HISTORY. LIVE IT.
+    </div>
+
+</footer>
+
+
+<!-- ================= TOAST ================= -->
+
+<div
+    class="toast"
+    id="toast">
+</div>
+
+
+<script>
+
+/* ========================================= */
+/* GAME STATE */
+/* ========================================= */
+
+let game = {
+
+    coins:250,
+
+    xp:0,
+
+    level:1,
+
+    artifacts:0,
+
+    questStep:0
+
+};
+
+
+/* ========================================= */
+/* PAGE NAVIGATION */
+/* ========================================= */
+
+function showPage(id){
+
+    if(id === "home"){
+
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+
+        return;
+
+    }
+
+    const section =
+        document.getElementById(id);
+
+    if(section){
+
+        section.scrollIntoView({
+            behavior:"smooth"
+        });
+
+    }
+
+}
+
+
+/* ========================================= */
+/* CIVILIZATIONS */
+/* ========================================= */
+
+const civilizations = {
+
+    "Chola Maritime Kingdom":{
+
+        description:
+        "Command a growing maritime kingdom, develop ports, manage resources and navigate the Indian Ocean trade network."
+
+    },
+
+    "Rajputana":{
+
+        description:
+        "Build fortified settlements, manage alliances and protect your kingdom through strategic decisions."
+
+    },
+
+    "Nalanda":{
+
+        description:
+        "Become a scholar, manage a legendary centre of learning and explore India's intellectual traditions."
+
+    },
+
+    "Bengal Delta":{
+
+        description:
+        "Navigate river networks, develop trade routes and build communities around the fertile delta."
+
+    }
+
+};
+
+
+function selectCivilization(name){
+
+    document.getElementById(
+        "selectedCivilization"
+    ).textContent=name;
+
+    document.getElementById(
+        "civilizationDescription"
+    ).textContent=
+        civilizations[name].description;
+
+    showToast(
+        name + " selected"
+    );
+
+}
+
+
+/* ========================================= */
+/* QUEST SYSTEM */
+/* ========================================= */
+
+const quests = [
+
+{
+
+    title:"The Great Port",
+
+    text:
+    "Your harbour is growing. A merchant fleet has arrived before the monsoon. How will you prepare the kingdom?",
+
+    choices:[
+
+        {
+            text:"Build larger docks",
+            xp:50,
+            coins:80,
+            result:
+            "Your harbour can now accommodate larger vessels. Trade capacity increases."
+        },
+
+        {
+            text:"Stockpile food",
+            xp:35,
+            coins:55,
+            result:
+            "Your people are prepared for a difficult season. Stability improves."
+        },
+
+        {
+            text:"Send scouts across the sea",
+            xp:60,
+            coins:65,
+            result:
+            "Your scouts discover a new trading opportunity."
+        }
+
+    ]
+
+},
+
+{
+
+    title:"The Merchant's Map",
+
+    text:
+    "A merchant offers you a mysterious map showing three possible routes. Which route will you investigate?",
+
+    choices:[
+
+        {
+            text:"Western trade route",
+            xp:55,
+            coins:70,
+            result:
+            "You discover a profitable maritime connection."
+        },
+
+        {
+            text:"Eastern route",
+            xp:45,
+            coins:90,
+            result:
+            "The route reveals rare goods and cultural exchanges."
+        },
+
+        {
+            text:"Follow the monsoon winds",
+            xp:70,
+            coins:60,
+            result:
+            "You learn how seasonal winds shape maritime travel."
+        }
+
+    ]
+
+},
+
+{
+
+    title:"The Bronze Clue",
+
+    text:
+    "An unusual bronze artifact is discovered near the temple complex. What will you do?",
+
+    choices:[
+
+        {
+            text:"Place it in the royal collection",
+            xp:45,
+            coins:50,
+            artifact:true,
+            result:
+            "The artifact becomes part of your cultural collection."
+        },
+
+        {
+            text:"Ask scholars to study it",
+            xp:80,
+            coins:40,
+            artifact:true,
+            result:
+            "Scholars identify clues about the object's cultural context."
+        },
+
+        {
+            text:"Search for its origin",
+            xp:65,
+            coins:75,
+            artifact:true,
+            result:
+            "Your investigation reveals connections between art and trade."
+        }
+
+    ]
+
+}
+
+];
+
+
+/* ========================================= */
+/* LOAD QUEST */
+/* ========================================= */
+
+function loadQuest(){
+
+    const quest =
+        quests[game.questStep];
+
+    document.getElementById(
+        "questTitle"
+    ).textContent=quest.title;
+
+    document.getElementById(
+        "questText"
+    ).textContent=quest.text;
+
+
+    document.getElementById(
+        "progressBar"
+    ).style.width =
+        ((game.questStep+1)/quests.length*100)
+        +"%";
+
+
+    const container =
+        document.getElementById("choices");
+
+    container.innerHTML="";
+
+
+    quest.choices.forEach(
+        (choice,index)=>{
+
+            const button =
+                document.createElement("button");
+
+            button.className="choice";
+
+            button.innerHTML=
+                (index+1)+
+                ". "+
+                choice.text;
+
+            button.onclick=
+                ()=>chooseOption(choice);
+
+            container.appendChild(button);
+
+        }
+    );
+
+}
+
+
+function chooseOption(choice){
+
+    game.xp += choice.xp;
+
+    game.coins += choice.coins;
+
+    if(choice.artifact){
+
+        game.artifacts++;
+
+    }
+
+
+    updateStats();
+
+
+    showToast(
+        "+"+
+        choice.xp+
+        " XP  •  +"+
+        choice.coins+
+        " Coins"
+    );
+
+
+    game.questStep++;
+
+
+    if(game.questStep >= quests.length){
+
+        setTimeout(
+            finishQuest,
+            700
+        );
+
+        return;
+
+    }
+
+
+    setTimeout(
+        loadQuest,
+        700
+    );
+
+}
+
+
+function finishQuest(){
+
+    document.getElementById(
+        "questTitle"
+    ).textContent=
+        "QUEST COMPLETE";
+
+    document.getElementById(
+        "questText"
+    ).innerHTML=
+        `
+        <strong style="color:#d8ad5b">
+        The Great Port has been secured.
+        </strong>
+        <br><br>
+
+        You completed the Chola Maritime quest
+        and expanded your understanding of
+        trade, navigation and cultural exchange.
+
+        <br><br>
+
+        🏆 Achievement Unlocked:
+        <strong>Master Navigator</strong>
+        `;
+
+
+    document.getElementById(
+        "choices"
+    ).innerHTML=
+        `
+        <button
+            class="btn btn-primary"
+            onclick="restartQuest()">
+            PLAY AGAIN
+        </button>
+
+        <button
+            class="btn"
+            onclick="showPage('museum')">
+            VISIT MUSEUM
+        </button>
+        `;
+
+
+    game.questStep=0;
+
+}
+
+
+function restartQuest(){
+
+    game.questStep=0;
+
+    loadQuest();
+
+}
+
+
+/* ========================================= */
+/* GAME STATS */
+/* ========================================= */
+
+function updateStats(){
+
+    document.getElementById(
+        "coins"
+    ).textContent=game.coins;
+
+    document.getElementById(
+        "navCoins"
+    ).textContent=game.coins;
+
+    document.getElementById(
+        "xp"
+    ).textContent=game.xp;
+
+    document.getElementById(
+        "artifactCount"
+    ).textContent=game.artifacts;
+
+    document.getElementById(
+        "profileXP"
+    ).textContent=game.xp;
+
+    document.getElementById(
+        "profileCoins"
+    ).textContent=game.coins;
+
+    document.getElementById(
+        "profileArtifacts"
+    ).textContent=game.artifacts;
+
+
+    game.level =
+        Math.floor(game.xp/100)+1;
+
+
+    document.getElementById(
+        "level"
+    ).textContent=game.level;
+
+}
+
+
+/* ========================================= */
+/* AI MENTOR */
+/* ========================================= */
+
+function sendMessage(){
+
+    const input =
+        document.getElementById(
+            "chatInput"
+        );
+
+    const text =
+        input.value.trim();
+
+    if(!text)return;
+
+
+    const messages =
+        document.getElementById(
+            "messages"
+        );
+
+
+    const userMessage =
+        document.createElement("div");
+
+    userMessage.className=
+        "message user";
+
+    userMessage.textContent=text;
+
+    messages.appendChild(
+        userMessage
+    );
+
+
+    input.value="";
+
+
+    setTimeout(()=>{
+
+        let response =
+        "That's a fascinating question. In BharatVerse, cultural knowledge is connected to the world, artifacts and decisions you encounter during gameplay.";
+
+
+        const lower =
+            text.toLowerCase();
+
+
+        if(
+            lower.includes("chola") ||
+            lower.includes("port") ||
+            lower.includes("trade")
+        ){
+
+            response=
+            "The Chola world in this prototype focuses on maritime activity, ports, navigation and cultural exchange. In the full version, the mentor would use a verified historical knowledge base to provide source-grounded explanations.";
+
+        }
+
+        else if(
+            lower.includes("nataraja")
+        ){
+
+            response=
+            "Nataraja is the iconic dancing form of Shiva in Hindu art. The image became especially prominent in South Indian bronze traditions. The game uses artifacts as a way to connect visual culture with historical context.";
+
+        }
+
+        else if(
+            lower.includes("history")
+        ){
+
+            response=
+            "BharatVerse is designed around exploration rather than memorisation. You encounter historical and cultural context through decisions, artifacts, characters and environments.";
+
+        }
+
+
+        const bot =
+            document.createElement("div");
+
+        bot.className=
+            "message bot";
+
+        bot.textContent=response;
+
+        messages.appendChild(bot);
+
+        messages.scrollTop =
+            messages.scrollHeight;
+
+    },600);
+
+}
+
+
+/* ========================================= */
+/* TOAST */
+/* ========================================= */
+
+function showToast(message){
+
+    const toast =
+        document.getElementById("toast");
+
+    toast.textContent=message;
+
+    toast.classList.add("show");
+
+
+    setTimeout(()=>{
+
+        toast.classList.remove("show");
+
+    },2500);
+
+}
+
+
+/* ========================================= */
+/* INITIALIZE */
+/* ========================================= */
+
+loadQuest();
+
+updateStats();
+
+</script>
+
+</body>
+</html>
